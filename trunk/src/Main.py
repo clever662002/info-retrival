@@ -4,7 +4,6 @@ Created on 2013-10-16
 @author: tina
 '''
 #!/usr/bin/python
-#import IndexSearcher
 import os
 import string
 import sys
@@ -23,21 +22,18 @@ class Analyzer(object):
         #split tokens on spaces
         for token in doc.split(" "):
             tokens.append(token)
+#        for token in tokens:
+#            print token
         return tokens
     
 class Parser:
     def parse(self,path):
         input_file = open(path).read()
         #create a list which will contain the documents
-#        collection = dict()
         collection = list()
         #Process the input file to extract document
         while 1:
             try:
-                #extract document date as its key
-#                i = input_file.index("<DATE>") + 6
-#                j = input_file.index("</DATE>")
-#                filename = path + "." + input_file[i:j]
                 #extract document content
                 i = input_file.index("<BODY>") + 6
                 j = input_file.index("</BODY>")
@@ -46,7 +42,6 @@ class Parser:
                 #Move forward on the input
                 input_file = input_file[j+7:]
             except:
-                print 'return from parsing'
             # if input_file.index("<BODY>") fails, we will end up here
             # meaning the whole collection has been processed
                 break
@@ -65,25 +60,25 @@ class IndexWriter(object):
     def process(self, collection):
         """Extract tokens from a document """
         # parse into blocks
-        limit = 3000
+        memsize = 57400
         tempNum = 0
         for doc in collection:
             doc_id = collection.index(doc)
             document_tokens = self.analyser.tokenize(doc)
             for token in document_tokens:
-                posting_list = self.terms.get(token, [])
+                posting_list = self.terms.get(token,[])
                 if not doc_id in posting_list:
                     posting_list.append(doc_id)
                     self.terms[token] = posting_list
-                if(sys.getsizeof(self.terms) > limit):
-                    for term in self.terms:
-                        output_file = open("temp" + str(tempNum) + ".txt", "w")
-                        docids = ', '.join(map(str,self.terms[token]))
-                        output_file.write(term + docids)
+                # if the file size is reached or bigger than the memory size, parse into a block
+                if(sys.getsizeof(self.terms) > memsize):
+                    output_file = open("temp" + str(tempNum) + ".txt", "w")
+                    for term in sorted(self.terms):
+                        docids = ','.join(map(str,self.terms[term]))
+                        output_file.write(term + '|' +  docids + '\n')
                     output_file.close()
-                    self.terms = []
-                    tempNum  = tempNum + 1                   
-                
+                    self.terms.clear()
+                    tempNum  = tempNum + 1    
     def get_index(self):
         return self.terms
 
@@ -95,10 +90,11 @@ if __name__ == '__main__':
     
 #   args = sys.argv
 #   path = args[1]
-    path = 'D:/workspace/InfoRetrieval/reuters21578/'
+    path = 'D:/MyDocuments/workspace/InfoRetrival/reuters21578/'
     # index the Reuters dataset
     for filename in os.listdir(path):
         if filename.endswith('.sgm'):
+            print filename
             collection = parser.parse(path + filename)
             index_writer.process(collection)
              
