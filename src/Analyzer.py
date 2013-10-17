@@ -16,7 +16,7 @@ class Analyzer(object):
         tokens = list()
         #remove capital letters, punctuation, newline and tab
         doc = doc.lower().translate(None,string.punctuation.join('\n\t'));
-        #slit tokens on spaces
+        #split tokens on spaces
         for token in doc.split(" "):
             tokens.append(token)
         return tokens
