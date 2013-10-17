@@ -26,7 +26,7 @@ class Parser:
             except:
                 print 'return from parsing'
             # if input_file.index("<BODY>") fails, we will end up here
-            #  meaning the whole collection has been processed
+            # meaning the whole collection has been processed
                 break
         return collection
 
