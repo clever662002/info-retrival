@@ -153,14 +153,20 @@ class IndexSearcher(object):
     def counter(self):
         path = 'D:/MyDocuments/workspace/InfoRetrival/src/final.t'
         input_file = open(path,"rb")
-        tcount=0 
+        tcount=0
+        pcount=0
         while True:
             line = input_file.readline()
             tcount = tcount + 1
             if not line:
                 break
             tcount = tcount + 1
+            temp = line.split(":")
+            term = temp[0]
+            postings = list(temp[1])
+            pcount = pcount + len(postings)
         print " the token size is : " + str(tcount)
+        print "the postings size is " + str(pcount)
     def or_query(self,query):
         docs = set()
         for token in self.analyser.tokenize(query):
