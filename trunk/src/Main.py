@@ -20,8 +20,10 @@ class Analyzer(object):
     def getstopwords(self):
         stopw_file = open('stopw.txt')
         stopw_file_string = stopw_file.read()
-        stop_words = stopw_file_string.split(",")
-        return stop_words
+        stop_words =stopw_file_string.split(",")
+        stop_list =[x.strip() for x in stop_words]
+        return stop_list
+
 
     def tokenize(self,doc):
         stop_list = self.getstopwords()
@@ -32,9 +34,8 @@ class Analyzer(object):
         doc = ''.join([i for i in doc if not i.isdigit()])
         #split tokens on spaces
         for token in doc.split(" "):
-            if token in stop_list:
-                continue
-            tokens.append(token)
+            if not token in stop_list:
+                tokens.append(token)
         return tokens
     
 class Parser:
@@ -68,11 +69,11 @@ class IndexWriter(object):
         # Create a dictionary (hash table) which will contain the posting lists
         self.terms = dict()
         self.analyser = analyser
+        self.tempNum = 0
     def process(self, collection):
         """Extract tokens from a document """
         # parse into blocks
-        memsize = 55000
-        tempNum = 0
+        memsize = 550000
         for doc in collection:
             doc_id = collection.index(doc)
             document_tokens = self.analyser.tokenize(doc)
@@ -99,12 +100,12 @@ class IndexWriter(object):
                     #cut off the last "\n" to avoid an empty line
                     output = output[:-1]
                     #write it to a binary file
-                    output_file = open("temp" + str(tempNum) + ".s", "wb")
+                    output_file = open("temp" + str(self.tempNum) + ".s", "wb")
                     output_file.write(output)
                     output_file.close()
                     #clear the 
                     self.terms.clear()
-                    tempNum  = tempNum + 1    
+                    self.tempNum  = self.tempNum + 1    
     def get_index(self):
         return self.terms
 
@@ -171,8 +172,8 @@ class MergeBlocks:
                     temp_elt = heapq.heappop(q)
                     # merge all the popped out results
                     temp = list(temp_elt)
-                    postings = list(temp[1])                   
-#                   postings.extend(x for x in temp_list if x not in postings and x != ',')
+                    temp_list = list(temp[1])                   
+                    postings.extend(x for x in temp_list if x not in postings)
 
                     # if the queue is all popped out, refill the queue by loading a new block 
                     if len(q) == 0 :
@@ -230,21 +231,30 @@ class IndexSearcher(object):
         docs = set()
         for token in self.analyser.tokenize(query):
             terms = self.searchtokens(token)
-            if terms[token]:
-                postings = list(terms[token])
-                docs = docs.union(set(postings))
+            if terms:
+                if terms[token]:
+                    postings = list(terms[token])
+                    docs = docs.union(set(postings))
+                else:
+                    continue
             else:
                 continue
         return docs
 
     def and_query(self,query):
         qtoken = self.analyser.tokenize(query)
-        docs = set(set(self.searchtokens(qtoken[0])[qtoken[0]]))
+        if self.searchtokens(qtoken[0]):
+            docs = set(set(self.searchtokens(qtoken[0])[qtoken[0]]))
+        else:
+            docs = set()
         for token in qtoken:
             terms = self.searchtokens(token)
-            if terms[token]:
-                postings = list(terms[token])
-                docs = docs.intersection(set(postings))
+            if terms:
+                if terms[token]:
+                    postings = list(terms[token])
+                    docs = docs.intersection(set(postings))
+                else:
+                    break
             else:
                 break
         return docs
@@ -267,9 +277,9 @@ if __name__ == '__main__':
             collection = parser.parse(path + filename)
             index_writer.process(collection)
     merge.mergeblock() 
-    '''    
+    '''
     insearch = IndexSearcher(analyser)
-    query = "adventurist"
+    query = "apple"
     result = insearch.and_query(query)
     print 'The query result is: '
     for r in result:
