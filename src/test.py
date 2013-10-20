@@ -3,10 +3,41 @@ Created on 2013-10-16
 
 @author: tina
 '''
+#!/usr/bin/python
 import os
 import heapq
+import string
 from ast import literal_eval
 #from collections import OrderedDict
+
+class Analyzer(object):
+    '''
+    for each input string, process it and extract tokens
+    '''
+
+    def __init__(self):
+        pass
+    
+    def getstopwords(self):
+        stopw_file = open('stopw.txt')
+        stopw_file_string = stopw_file.read()
+        stop_words = stopw_file_string.split(",")
+        return stop_words
+
+    def tokenize(self,doc):
+        stop_list = self.getstopwords()
+        tokens = list()
+        #remove capital letters, punctuation, newline and tab
+        doc = doc.lower().translate(None,string.punctuation.join('\n\t'));
+        #remove numbers
+        doc = ''.join([i for i in doc if not i.isdigit()])
+        #split tokens on spaces
+        for token in doc.split(" "):
+            if token in stop_list:
+                continue
+            tokens.append(token)
+        return tokens
+    
 class MergeBlocks:
     
     def _init_(self):
@@ -41,7 +72,7 @@ class MergeBlocks:
         for filename in os.listdir(path):
             heap = []
             if filename.endswith('.s'):
-                block = merge.unmarshall(path + filename,0)
+                block = self.merge.unmarshall(path + filename,0)
                 # push each item in the dictionary into the heap queue
                 for item in block.items():
                     heapq.heappush(heap,item)
@@ -96,11 +127,60 @@ class MergeBlocks:
                 result.clear()
                 fin_output.close()
                 print'finish to write to final file'
-                   
-if __name__ == '__main__':
+
+class IndexSearcher(object):
+   
+    def __init__(self, analyser):
+        # Create a dictionary (hash table) which will contain the posting lists
+        self.analyser = analyser
     
-    merge = MergeBlocks()
-    merge.mergeblock()
+    def searchtokens(self,token):
+        path = 'D:/MyDocuments/workspace/InfoRetrival/src/final.t'
+        input_file = open(path,"rb") 
+        terms = dict()     
+        while True:
+            line = input_file.readline()
+            if not line:
+                break
+            temp = line.split(":")
+            term = temp[0]
+            if token == term:
+                postings = literal_eval(temp[1])
+                terms[term] = postings
+                break
+        input_file.close()
+        return terms
+    def counter(self):
+        path = 'D:/MyDocuments/workspace/InfoRetrival/src/final.t'
+        input_file = open(path,"rb")
+        tcount=0 
+        while True:
+            line = input_file.readline()
+            tcount = tcount + 1
+            if not line:
+                break
+            tcount = tcount + 1
+        print " the token size is : " + str(tcount)
+    def or_query(self,query):
+        docs = set()
+        for token in self.analyser.tokenize(query):
+            terms = self.searchtokens(token)
+            postings = list(terms[token])                   
+            docs = docs.union(set(postings))
+        return docs
+
+    def and_query(self,query):
+        docs = set()
+        for token in self.analyser.tokenize(query):
+            terms = self.searchtokens(token)
+            postings = list(terms[token])                   
+            docs = docs.union(set(postings))
+        return docs
+                       
+if __name__ == '__main__':
+    analyser = Analyzer()
+    insearch = IndexSearcher(analyser)
+    insearch.counter()
     
     
         
