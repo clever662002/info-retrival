@@ -87,7 +87,7 @@ class IndexWriter(object):
                     #sorted the keys
                     sorted_terms = self.terms.keys()
                     sorted_terms.sort()
-                    #associate posting lists in the same order
+                    #associate posting lists in the same ordermai
                     sorted_postings = list()
                     for st in sorted_terms:
                         sorted_postings.append(self.terms[st])
@@ -138,7 +138,7 @@ class MergeBlocks:
         queueList = list()
         #create a start_line list for each dictionary in the list to remember the reading point
         start_line = list() 
-        path = 'D:/MyDocuments/workspace/InfoRetrival/src/'
+        path = 'D:/workspace/InfoRetrival/src/'
         # Initialize a list of blocks(each block is a heap queue) 
         for filename in os.listdir(path):
             heap = []
@@ -211,7 +211,7 @@ class IndexSearcher(object):
         self.analyser = analyser
     
     def searchtokens(self,token):
-        path = 'D:/MyDocuments/workspace/InfoRetrival/src/final.t'
+        path = 'D:/workspace/InfoRetrival/src/final.t'
         input_file = open(path,"rb") 
         terms = dict()      
         while True:
@@ -269,7 +269,7 @@ if __name__ == '__main__':
 #   args = sys.argv
 #   path = args[1]
     '''
-    path = 'D:/MyDocuments/workspace/InfoRetrival/reuters21578/'
+    path = 'D:/workspace/InfoRetrival/reuters21578/'
     # index the Reuters dataset
     for filename in os.listdir(path):
         if filename.endswith('.sgm'):
@@ -279,8 +279,8 @@ if __name__ == '__main__':
     merge.mergeblock() 
     '''
     insearch = IndexSearcher(analyser)
-    query = "apple"
-    result = insearch.and_query(query)
+    query = " bahia showers"
+    result = insearch.or_query(query)
     print 'The query result is: '
     for r in result:
         print r,
