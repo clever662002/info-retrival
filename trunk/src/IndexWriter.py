@@ -1,10 +1,45 @@
-import sys
+#import sys
 class IndexWriter(object):
     '''
     for each document, clean it, tokenize it and store the terms in posting lists
     '''
+    def __init__(self, analyser):
+        # Create a dictionary (hash table) which will contain the posting lists
+        self.terms = dict()
+        self.analyser = analyser
+        self.tempNum = 0
+        #remember each document length
+        self.doc_len = dict()
+        
+    def process(self, collection):
+        """Extract tokens from a document """
+        #save each term's frequency by documents
+        for doc in collection:
+            # ignore doc_id
+            #doc_id = collection.index(doc)
+            document_tokens = self.analyser.tokenize(doc)
+            self.doc_len[doc] = len(document_tokens)
+            for token in document_tokens:
+                if token == "":
+                    continue
+                posting_list = self.terms.get(token,dict())
+                #posting list saves doc pointer as a key and each term frequency as a value                
+                if not doc in posting_list:
+                    posting_list[doc] = 1
+#                    posting_list.append(doc)
+                    self.terms[token] = posting_list
+                else:
+                    posting_list[doc] = posting_list[doc] + 1
+            
+    def get_doc_len(self):
+        return self.doc_len
+    
+    def get_index(self):
+        return self.terms
 
 
+
+'''
     def __init__(self, analyser):
         # Create a dictionary (hash table) which will contain the posting lists
         self.terms = dict()
@@ -48,3 +83,4 @@ class IndexWriter(object):
                     self.tempNum  = self.tempNum + 1    
     def get_index(self):
         return self.terms
+'''
