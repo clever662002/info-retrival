@@ -6,13 +6,13 @@ Created on 2013-10-16
 #!/usr/bin/python
 import os
 import math
-#from IndexSearcher import IndexSearcher
 from Analyzer import Analyzer
 from Parser import Parser
 from IndexWriter import IndexWriter
+#from IndexSearcher import IndexSearcher
 #from MergeBlocks import MergeBlocks
 
-    
+# term frequency ranking    
 def tf_rank(indexs,qterm):
     # score[doc] is the total score of a doc which contains total frequencies of all terms
     score = dict()
@@ -26,10 +26,14 @@ def tf_rank(indexs,qterm):
             # if a document already exists, accumulate its term frequencies.
             else:
                 score[doc] = score[doc] + posting_list[doc]
-    ranked_doc = sorted(score, key=lambda x:x[1], reverse=True)
-    print "ranked doc is a type of :" +  str(type(ranked_doc))
+    ranked_doc = sorted(score.items(), key=lambda x:x[1], reverse=True)
+    print'ranking score for tf'
+    for rd in ranked_doc[:10]:
+        print rd[1]
+        
     return ranked_doc
-    
+
+# okapi ranking    
 def okapi_rank(indexs,qterm,total_doc, k, doc_len, avgdl):
     #create a idf dictionary for each query term as key
     idf = dict()
@@ -45,9 +49,10 @@ def okapi_rank(indexs,qterm,total_doc, k, doc_len, avgdl):
                 score[doc] = idf[qt] * (((posting_list[doc]) * (k + 1)) /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc] / avgdl))))
             else:
                 score[doc] = score[doc] + idf[qt] * (((posting_list[doc]) * (k + 1)) /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc] / avgdl))))    
-    for s in score.items():
-        print s[1];
-    ranked_doc = sorted(score, key=lambda x:x[1],reverse=True)     
+    ranked_doc = sorted(score.items(), key=lambda x:x[1],reverse=True) 
+    print'ranking score for okapi'
+    for rd in ranked_doc[:10]:
+        print rd[1]
     return ranked_doc                                                         
                                         
 
@@ -57,31 +62,19 @@ if __name__ == '__main__':
     parser = Parser()
     analyser = Analyzer()
     index_writer = IndexWriter(analyser)
-#    merge = MergeBlocks()
-
-    while True:
-        print 'Query types:'
-        print '1.Okapi BM25(default)'
-        print '2.Sorted by term Frequency'
-        print 'q.Exit'
-        qt = raw_input("Select a query type as above(1 or 2 or q):")
-        if qt == 'q':
-            print 'The program Terminate.'
-            break
-        else:
-            print 'Haha I choose option:' + qt
-            k = 1.2
-            k = raw_input("Enter of k(default= 1.2)")
-            print 'Test k =' + str(k)
-            
-    #store all documents from all .sgm files, and its length is total number of documents
+    #merge = MergeBlocks()
+    
+    print'Initializing IndexWriter'
+    path = 'D:/MyDocuments/workspace/InfoRetrival/reuters21578/'        
+    #store all searched documents and its length is a total number of documents(total_doc)
     allcollection = list()
-    path = 'D:/workspace/InfoRetrival/reuters21578/'
-    # index the Reuters dataset
+    #stores doc as its key and total number of tokens for each document as its value 
     doc_len = dict()
+    # loop through all reuters
+    print'Found index on disk'
     for filename in os.listdir(path):
         if filename.endswith('.sgm'):
-            print filename
+            print 'Processing collection ' + filename
             collection = parser.parse(path + filename)
             #after the parser parses one .sgm to a collection, add it to all collection for storing to a files
             allcollection.extend(collection)
@@ -89,32 +82,63 @@ if __name__ == '__main__':
             index_writer.process(collection)
             indexs = index_writer.get_index()
             doc_len = index_writer.get_doc_len()
-            
-            
+    
+    
+    #number of documents
     total_doc =len(allcollection)
+    print 'total number of documents in the collection is ' + str(total_doc)
+    #total numbers of tokens in all documents
     total_token = sum(doc_len.values())
-    print 'total token is ' + str(total_token)
+    print 'total number of tokens is ' + str(total_token)
     #average document length
     avgdl = total_token/total_doc
-    k = 1.2
-    print avgdl
+    print 'tokens per doc on average (total_token/total_doc) is ' + str(avgdl)
+    print 'Inverted index is ready to use'
+    print '***********************************************************'
+   
     
-        
-        
+    while True:
+        print 'Query types:'
+        print '1.Okapi BM25(default)'
+        print '2.Sorted by term Frequency'
+        print 'q.Exit'
+        option = raw_input("Select a query type as above(1 or 2 or q):")
+        if  option == 'q':
+            print 'The program Terminate.'
+            break
+        elif option == str(2):
+            query = raw_input("Enter a query:")
+            qterm = analyser.tokenize(query)
+            ranked_doc =tf_rank(indexs,qterm)
+            for rd in ranked_doc[:5]:
+                print rd
+                print '**************************************************'
+        else:
+            k = raw_input('Enter of k(default = 1.2):')
+            if k:
+                k = int(k)
+            else:
+                k = 1.2
+            query = raw_input("Enter a query:")
+            qterm = analyser.tokenize(query)
+            ranked_doc =okapi_rank(indexs,qterm,total_doc,k,doc_len, avgdl)
+            for rd in ranked_doc[:5]:
+                print rd
+                print '**************************************************'
+'''
     #3 queries
     queries = list()
-#    queries.append('Democrats welfare and healthcare reform policies')
-#    queries.append('Drug company bankruptcies')
+    queries.append('Democrats welfare and healthcare reform policies')
+    queries.append('Drug company bankruptcies')
     queries.append('Dow jones great depression')
     
     for q in queries:
         qterm = analyser.tokenize(q)
         ranked_doc =okapi_rank(indexs,qterm,total_doc,k,doc_len, avgdl)
-        '''
-        for doc in ranked_doc:
-            print doc
-            print "**************************"
-       '''
+
+    for doc in ranked_doc[:5]:
+        print doc
+        print "******************************************************"
 
     #store all collection to a file
     all_doc = open("all_doc.d",'ab')
@@ -122,8 +146,9 @@ if __name__ == '__main__':
         all_doc.write(str(c) + '\n')
     all_doc.close()
     print 'finish writing files'
+'''
 
-    '''
+'''
     merge.mergeblock() 
     insearch = IndexSearcher(analyser)
     query = " bahia showers"
@@ -131,5 +156,5 @@ if __name__ == '__main__':
     print 'The query result is: '
     for r in result:
         print r,
-    '''
+'''
 
