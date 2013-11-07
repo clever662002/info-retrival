@@ -5,6 +5,7 @@ Created on 2013-10-16
 '''
 #!/usr/bin/python
 import os
+import math
 #from IndexSearcher import IndexSearcher
 from Analyzer import Analyzer
 from Parser import Parser
@@ -25,12 +26,30 @@ def tf_rank(indexs,qterm):
             # if a document already exists, accumulate its term frequencies.
             else:
                 score[doc] = score[doc] + posting_list[doc]
-    ranked_doc = sorted(score, key=score.get)
+    ranked_doc = sorted(score, key=lambda x:x[1], reverse=True)
     print "ranked doc is a type of :" +  str(type(ranked_doc))
     return ranked_doc
     
-def okapi_rank(indexs,qterm):
-    pass
+def okapi_rank(indexs,qterm,total_doc, k, doc_len, avgdl):
+    #create a idf dictionary for each query term as key
+    idf = dict()
+    #create a score dictionary for each founded documents and rank them
+    score = dict()    
+    for qt in qterm:
+        posting_list = indexs.get(qt,{})
+        #calculate the idf of each query term
+        idf[qt] = math.log10((total_doc - len(posting_list) + 0.5) / (len(posting_list) + 0.5))
+        # calculate each doc's score
+        for doc in posting_list.keys():
+            if not doc in score:
+                score[doc] = idf[qt] * (((posting_list[doc]) * (k + 1)) /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc] / avgdl))))
+            else:
+                score[doc] = score[doc] + idf[qt] * (((posting_list[doc]) * (k + 1)) /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc] / avgdl))))    
+    for s in score.items():
+        print s[1];
+    ranked_doc = sorted(score, key=lambda x:x[1],reverse=True)     
+    return ranked_doc                                                         
+                                        
 
 # main function
 if __name__ == '__main__':
@@ -57,8 +76,9 @@ if __name__ == '__main__':
             
     #store all documents from all .sgm files, and its length is total number of documents
     allcollection = list()
-    path = 'D:/MyDocuments/workspace/InfoRetrival/reuters21578/'
+    path = 'D:/workspace/InfoRetrival/reuters21578/'
     # index the Reuters dataset
+    doc_len = dict()
     for filename in os.listdir(path):
         if filename.endswith('.sgm'):
             print filename
@@ -68,18 +88,33 @@ if __name__ == '__main__':
             #tokenize each collection
             index_writer.process(collection)
             indexs = index_writer.get_index()
+            doc_len = index_writer.get_doc_len()
             
-            #3 queries
-            queries = list()
-            queries.append('Democrats welfare and healthcare reform policies')
-            queries.append('Drug company bankruptcies')
-            queries.append('Dow jones great depression')
             
-            for q in queries:
-                qterm = analyser.tokenize(q)
-                ranked_doc =tf_rank(indexs,qterm)
-                print ranked_doc
-
+    total_doc =len(allcollection)
+    total_token = sum(doc_len.values())
+    print 'total token is ' + str(total_token)
+    #average document length
+    avgdl = total_token/total_doc
+    k = 1.2
+    print avgdl
+    
+        
+        
+    #3 queries
+    queries = list()
+#    queries.append('Democrats welfare and healthcare reform policies')
+#    queries.append('Drug company bankruptcies')
+    queries.append('Dow jones great depression')
+    
+    for q in queries:
+        qterm = analyser.tokenize(q)
+        ranked_doc =okapi_rank(indexs,qterm,total_doc,k,doc_len, avgdl)
+        '''
+        for doc in ranked_doc:
+            print doc
+            print "**************************"
+       '''
 
     #store all collection to a file
     all_doc = open("all_doc.d",'ab')
