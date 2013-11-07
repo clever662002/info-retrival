@@ -18,18 +18,20 @@ class IndexWriter(object):
             # ignore doc_id
             #doc_id = collection.index(doc)
             document_tokens = self.analyser.tokenize(doc)
-            #count how many tokens has in a document
+            #count how many tokens in a document
             self.doc_len[doc] = len(document_tokens)
             for token in document_tokens:
+                #remove "" indexes
                 if token == "":
                     continue
-                posting_list = self.terms.get(token,dict())
-                #posting list saves doc pointer as a key and each term frequency as a value                
+                #create a posting_list as a dictionary, key is doc pointer,value is the term's frequency
+                posting_list = self.terms.get(token,dict())             
                 if not doc in posting_list:
                     posting_list[doc] = 1
 #                    posting_list.append(doc)
                     self.terms[token] = posting_list
                 else:
+                    # if the posting_list already exits, only need to update its value
                     posting_list[doc] = posting_list[doc] + 1
             
     def get_doc_len(self):
