@@ -18,6 +18,7 @@ class IndexWriter(object):
             # ignore doc_id
             #doc_id = collection.index(doc)
             document_tokens = self.analyser.tokenize(doc)
+            #count how many tokens has in a document
             self.doc_len[doc] = len(document_tokens)
             for token in document_tokens:
                 if token == "":
