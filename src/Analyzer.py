@@ -16,7 +16,7 @@ class Analyzer(object):
 
 
     def tokenize(self,doc):
-        stop_list = self.getstopwords()
+        #stop_list = self.getstopwords()
         tokens = list()
         #remove capital letters, punctuation, newline and tab
         doc = doc.lower().translate(None,string.punctuation.join('\n\t'));
@@ -24,6 +24,6 @@ class Analyzer(object):
         doc = ''.join([i for i in doc if not i.isdigit()])
         #split tokens on spaces
         for token in doc.split(" "):
-            if not token in stop_list:
-                tokens.append(token)
+            #if not token in stop_list:
+            tokens.append(token)
         return tokens
