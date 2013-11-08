@@ -111,7 +111,7 @@ if __name__ == '__main__':
             qterm = analyser.tokenize(query)
             ranked_doc =tf_rank(indexs,qterm)
             for rd in ranked_doc[:5]:
-                print rd
+                print rd[0]
                 print '**************************************************'
         else:
             k = raw_input('Enter of k(default = 1.2):')
@@ -123,7 +123,7 @@ if __name__ == '__main__':
             qterm = analyser.tokenize(query)
             ranked_doc =okapi_rank(indexs,qterm,total_doc,k,doc_len, avgdl)
             for rd in ranked_doc[:5]:
-                print rd
+                print rd[0]
                 print '**************************************************'
 '''
     #3 queries
