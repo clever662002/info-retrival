@@ -1,14 +1,16 @@
 from ast import literal_eval
+
+
 class IndexSearcher(object):
-   
+
     def __init__(self, analyser):
         # Create a dictionary (hash table) which will contain the posting lists
         self.analyser = analyser
-    
-    def searchtokens(self,token):
+
+    def searchtokens(self, token):
         path = 'D:/workspace/InfoRetrival/src/final.t'
-        input_file = open(path,"rb") 
-        terms = dict()      
+        input_file = open(path, "rb")
+        terms = dict()
         while True:
             line = input_file.readline()
             if not line:
@@ -21,8 +23,8 @@ class IndexSearcher(object):
                 break
         input_file.close()
         return terms
-        
-    def or_query(self,query):
+
+    def or_query(self, query):
         docs = set()
         for token in self.analyser.tokenize(query):
             terms = self.searchtokens(token)
@@ -36,7 +38,7 @@ class IndexSearcher(object):
                 continue
         return docs
 
-    def and_query(self,query):
+    def and_query(self, query):
         qtoken = self.analyser.tokenize(query)
         if self.searchtokens(qtoken[0]):
             docs = set(set(self.searchtokens(qtoken[0])[qtoken[0]]))
