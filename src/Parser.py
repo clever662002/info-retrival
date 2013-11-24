@@ -1,5 +1,7 @@
+
+
 class Parser:
-    def parse(self,path):
+    def parse(self, path):
         input_file = open(path).read()
         #create a list which will contain the documents
         collection = list()
@@ -12,7 +14,7 @@ class Parser:
                 #Append the document to our list
                 collection.append(input_file[i:j])
                 #Move forward on the input
-                input_file = input_file[j+7:]
+                input_file = input_file[j + 7:]
             except:
             # if input_file.index("<BODY>") fails, we will end up here
             # meaning the whole collection has been processed
