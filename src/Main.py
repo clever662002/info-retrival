@@ -4,16 +4,40 @@ Created on 2013-10-16
 @author: tina
 '''
 #!/usr/bin/python
-import os
-import math
-from Analyzer import Analyzer
-from Parser import Parser
-from IndexWriter import IndexWriter
+#import os
+#import math
+#from Analyzer import Analyzer
+#from IndexWriter import IndexWriter
 #from IndexSearcher import IndexSearcher
 #from MergeBlocks import MergeBlocks
 # term frequency ranking
+from Parser import Parser
+from Indexing import Indexing
+from whoosh.qparser import QueryParser
+import whoosh.index as index
+# main function
+if __name__ == '__main__':
+    #collection = list()
+    #parser = Parser()
+    #indexer = Indexing()
+    #path = "/home/tina/projects/test/"
+    #collection = parser.parse(path)
+    #indexer.process(collection)
+    #print "Finish Indexing"
+    ix = index.open_dir("indexdir")
+    results = ix.searcher().search('content'), None)
+    for result in results:
+    print "Rank: %s Id: %s Author: %s" % (result.rank, result['id'], result['author'])
+    print "Content:"
+    print result['content']
+    #qp = QueryParser("content", schema=ix.schema)
+    #q = qp.parse(u"welcome encs")
+    #with ix.searcher() as s:
+        #results = s.search(q)
+    #for rs in results:
+        #print "the title is:" + str(rs)
 
-
+'''
 def tf_rank(indexs, qterm):
     # score[doc] is the total score of a doc
     #which contains total frequencies of all terms
@@ -46,13 +70,18 @@ def okapi_rank(indexs, qterm, total_doc, k, doc_len, avgdl):
     for qt in qterm:
         posting_list = indexs.get(qt, {})
         #calculate the idf of each query term
-        idf[qt] = math.log10((total_doc - len(posting_list) + 0.5) / (len(posting_list) + 0.5))
+        idf[qt] = math.log10((total_doc - len(posting_list) + 0.5)
+                             / (len(posting_list) + 0.5))
         # calculate each doc's score
         for doc in posting_list.keys():
             if not doc in score:
-                score[doc] = idf[qt] * (((posting_list[doc]) * (k + 1)) /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc] / avgdl))))
+                score[doc] = idf[qt] * (((posting_list[doc]) * (k + 1))
+                 /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc]
+                  / avgdl))))
             else:
-                score[doc] = score[doc] + idf[qt] * (((posting_list[doc]) * (k + 1)) /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc] / avgdl))))
+                score[doc] = score[doc] + idf[qt] *
+                (((posting_list[doc]) * (k + 1)) /(posting_list[doc] + k *
+                (1 - 0.75 + 0.75 * (doc_len[doc] / avgdl))))
     ranked_doc = sorted(score.items(), key=lambda x: x[1], reverse=True)
     print'ranking score for okapi'
     for rd in ranked_doc[:10]:
@@ -128,6 +157,7 @@ if __name__ == '__main__':
             for rd in ranked_doc[:5]:
                 print rd[0]
                 print '**************************************************'
+'''
 '''
     #3 queries
     queries = list()
