@@ -38,49 +38,77 @@ class Indexing:
             soup = BeautifulSoup(str(doc))
             if soup.title:
                 title = soup.title.findAll(text=True)
+            else:
+                title = None
+
             if soup.th:
                 th = soup.th.findAll(text=True)
+            else:
+                th = None
+
             if soup.h1:
                 h1 = soup.h1.findAll(text=True)
+            else:
+                h1 = None
+
             if soup.h2:
                 h2 = soup.h2.findAll(text=True)
+            else:
+                h2 = None
+
             if soup.h3:
                 h3 = soup.h3.findAll(text=True)
+            else:
+                h3 = None
+
             if soup.h4:
                 h4 = soup.h4.findAll(text=True)
+            else:
+                h4 = None
+
             if soup.h5:
                 h5 = soup.h5.findAll(text=True)
+            else:
+                h5 = None
+
             if soup.h6:
                 h6 = soup.h6.findAll(text=True)
+            else:
+                h6 = None
+
             if soup.p:
                 p = soup.p.findAll(text=True)
+            else:
+                p = None
+
             if soup.blockquote:
                 blockquote = soup.blockquote.findAll(text=True)
+            else:
+                blockquote = None
+
             if soup.td:
                 td = soup.td.findAll(text=True)
+            else:
+                td = None
+
             if soup.li:
                 li = soup.li.findAll(text=True)
+            else:
+                li = None
+
             if soup.label:
                 label = soup.label.findAll(text=True)
+            else:
+                label = None
+
             if soup.div:
                 div = soup.div.findAll(text=True)
+            else:
+                div = None
+
             if soup.section:
                 section = soup.section.findAll(text=True)
             else:
-                title = None
-                th = None
-                h1 = None
-                h2 = None
-                h3 = None
-                h4 = None
-                h5 = None
-                h6 = None
-                p = None
-                blockquote = None
-                td = None
-                li = None
-                label = None
-                div = None
                 section = None
 
             writer.add_document(title=title, th=th, h1=h1, h2=h2, h3=h3, h4=h4,
