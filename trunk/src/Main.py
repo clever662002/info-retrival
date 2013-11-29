@@ -13,8 +13,6 @@ Created on 2013-10-16
 # term frequency ranking
 from Parser import Parser
 from Indexing import Indexing
-from whoosh.qparser import QueryParser
-import whoosh.index as index
 
 # main function
 if __name__ == '__main__':
@@ -25,20 +23,6 @@ if __name__ == '__main__':
     collection = parser.parse(path)
     indexer.process(collection)
     print "Finish Indexing"
-    ix = index.open_dir("indexdir")
-    #ix_reader = ix.reader()
-    #results = ix_reader.field_length("title")
-    #print results
-    #for rs in results:
-        #print rs
-    qp = QueryParser("title", schema=ix.schema)
-    q = qp.parse(u"concordia")
-    with ix.searcher() as s:
-        results = s.search(q)
-        for rs in results:
-            print "the title is:" + str(rs)
-            #print type(rs)
-
 '''
 def tf_rank(indexs, qterm):
     # score[doc] is the total score of a doc
@@ -75,7 +59,7 @@ def okapi_rank(indexs, qterm, total_doc, k, doc_len, avgdl):
         idf[qt] = math.log10((total_doc - len(posting_list) + 0.5)
                              / (len(posting_list) + 0.5))
         # calculate each doc's score
-        for doc in posting_list.keys():
+        #for doc in posting_list.keys():
             if not doc in score:
                 score[doc] = idf[qt] * (((posting_list[doc]) * (k + 1))
                  /(posting_list[doc] + k * (1 - 0.75 + 0.75 * (doc_len[doc]
