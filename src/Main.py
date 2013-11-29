@@ -13,16 +13,26 @@ Created on 2013-10-16
 # term frequency ranking
 from Parser import Parser
 from Indexing import Indexing
+from Searcher import Searcher
 
 # main function
 if __name__ == '__main__':
-    collection = list()
-    parser = Parser()
-    indexer = Indexing()
-    path = "/home/tina/projects/test/"
-    collection = parser.parse(path)
-    indexer.process(collection)
-    print "Finish Indexing"
+#    collection = list()
+#    parser = Parser()
+#    indexer = Indexing()
+    searcher = Searcher()
+#    path = "/home/katherine/COMP479/info-retrieval/trunk/src/test/"
+
+#    # Parse the documents
+#    collection = parser.parse(path)
+#    # Index the documents
+#    indexer.process(collection)
+#    print "Finish Indexing"
+
+    # Query the index
+    query = "canada"
+    searcher.search(query)
+
 '''
 def tf_rank(indexs, qterm):
     # score[doc] is the total score of a doc
