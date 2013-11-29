@@ -15,27 +15,29 @@ from Parser import Parser
 from Indexing import Indexing
 from whoosh.qparser import QueryParser
 import whoosh.index as index
+
 # main function
 if __name__ == '__main__':
-    #collection = list()
-    #parser = Parser()
-    #indexer = Indexing()
-    #path = "/home/tina/projects/test/"
-    #collection = parser.parse(path)
-    #indexer.process(collection)
-    #print "Finish Indexing"
+    collection = list()
+    parser = Parser()
+    indexer = Indexing()
+    path = "/home/tina/projects/test/"
+    collection = parser.parse(path)
+    indexer.process(collection)
+    print "Finish Indexing"
     ix = index.open_dir("indexdir")
-    results = ix.searcher().search('content'), None)
-    for result in results:
-    print "Rank: %s Id: %s Author: %s" % (result.rank, result['id'], result['author'])
-    print "Content:"
-    print result['content']
-    #qp = QueryParser("content", schema=ix.schema)
-    #q = qp.parse(u"welcome encs")
-    #with ix.searcher() as s:
-        #results = s.search(q)
+    #ix_reader = ix.reader()
+    #results = ix_reader.field_length("title")
+    #print results
     #for rs in results:
-        #print "the title is:" + str(rs)
+        #print rs
+    qp = QueryParser("title", schema=ix.schema)
+    q = qp.parse(u"concordia")
+    with ix.searcher() as s:
+        results = s.search(q)
+        for rs in results:
+            print "the title is:" + str(rs)
+            #print type(rs)
 
 '''
 def tf_rank(indexs, qterm):
