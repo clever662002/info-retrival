@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!-- InstanceBegin template="/Templates/insidepage_xml.dwt.php" codeOutsideHTMLIsLocked="true" -->
+
+
+<head>
+<!-- Template System Version 1.7Beta - any questions should be directed to Rommil Santiago, rommil.santiago@concordia.ca -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Homepage - Computer Science &amp; Software Engineering - Concordia University - Montreal, Quebec, Canada</title>
+<meta name="verify-v1" content="knGpcn5wDEFQ5p/n0gKYttiwWSEJ7At+hfca0wnlyTY=" />
+<meta name="msvalidate.01" content="5304EFE61919169FD1CFEADFFE36975A" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="hidden" content="" />
+<meta name="owner" content="Computer Science &amp; Software Engineering" />
+<meta name="author" content="Concordia University" />
+<meta name="copyright" content="Concordia University" />
+<meta name="meta_tag_generator" content="" />
+<meta name="robots" content="all,index" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<meta name="classification" content="" />
+<meta name="rating" content="general" />
+<meta name="language" content="en-ca" />
+<link rel="shortcut icon" href="http://web2.concordia.ca/globalmk/favicon.ico" />
+<link rel="stylesheet" href="http://web2.concordia.ca/globalmk/stylesheets/common.php" type="text/css" media="all" charset="UTF-8" />
+<style type="text/css">
+<!--
+	#homebutton{
+		margin:0;
+		padding:0;
+		height:145px;
+		width:329px;
+		display:block;
+		overflow:hidden;
+		position:absolute;
+		top:9px;
+		left:9px;
+	}
+	
+	img#concordialogo{
+		position:absolute;
+		left:0;
+		top:0;
+		border:0;
+		z-index:256;
+	}
+	
+	#homebutton a{
+		margin:0;
+		padding:0;
+		position:absolute;
+	}
+	
+	
+	#homebutton a:hover img#concordialogo{
+		top:-145px;
+	}
+	
+	#banner img.homebutton_ie6{
+		top:-145px;
+	}
+	#banner img.homebutton_ie6_off{
+		position:static;
+	}	
+	#concordialogo{
+		margin:0;
+		padding:0;
+		position:static;
+	}
+-->
+</style>
+<link rel="stylesheet" href="stylesheets/custom.php?secure=&amp;version=1.7Beta" type="text/css" media="all" charset="UTF-8" />
+<link rel="stylesheet" href="stylesheets/home.css" type="text/css" media="all" charset="UTF-8" />
+<!--[if lt IE 7]><link rel="stylesheet" href="stylesheets/ie6.css" type="text/css" media="all" charset="UTF-8" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="stylesheets/ie7.css" type="text/css" media="all" charset="UTF-8" /><![endif]-->
+<link rel="stylesheet" href="stylesheets/m.css" type="text/css" media="all" charset="UTF-8" title="text_m"/>
+<link rel="alternate stylesheet" type="text/css" href="stylesheets/l.css" media="all" charset="UTF-8" title="text_l" />
+<link rel="alternate stylesheet" type="text/css" href="stylesheets/xl.css" media="all" charset="UTF-8" title="text_xl" />
+<!-- <link rel="stylesheet" type="text/css" media="print" href="stylesheets/print.css" />-->
+<script src="http://web2.concordia.ca/globalmk/scripts/styleswitcher.php" type="text/javascript" charset="UTF-8"> </script>
+<script src="http://web2.concordia.ca/globalmk/scripts/domeffects.php" type="text/javascript" charset="UTF-8"> </script>
+<script src="http://web2.concordia.ca/globalmk/scripts/bottombar.php" type="text/javascript" charset="ISO-8859-1"> </script>
+<script type="text/javascript" src="http://web2.concordia.ca/globalmk/scripts/livevalidation_standalone.php"> </script>
+<script type="text/javascript">
+		window.addEvent('domready',function(){activesearch(); queryclick(); sizebuttons(); styleswitcher(); queryclick_media(); tablelinks(); showbookmarks(); alternateRows(); 
+								replaceShareThis();
+		// Add your extra scripts here		
+		}
+		);
+	</script>
+<script src="http://web2.concordia.ca/globalmk/scripts/swfobject.php" type="text/javascript" charset="UTF-8"> </script>
+
+
+
+
+<!-- AZ INDEX SUGGESTIONS-->
+
+<script src="http://web2.concordia.ca/globalmk/scripts/jquery.php" type="text/javascript"></script>
+<script src="http://web2.concordia.ca/globalmk/scripts/quickaccess.php" type="text/javascript"></script>
+<script type="text/javascript">
+	if (!window.opera){
+		$(document).ready(function() { // jQuery onload
+			livesearch_init();
+			$('#search_toplevel_query').quickaccess({selector:'#search_listing a'});
+			movelisting();
+			togglesmartsearch();
+		// staff and directory
+		if (!baseURL)
+		staffDirectory('http://www.cse.concordia.ca');		
+		textsizeactive();
+		
+	});}
+	
+</script>
+
+
+</head>
+
+
+
+<body  class="home"  >
+<!-- Contribute/DW Template System Version 1.7Beta or help contact Rommil Santiago (rommil.santiago@concordia.ca) -->
+<div id="top"></div>
+<div id="globaltools">
+  <div id="globaltools_bg">
+    <div class="globaltools_pagewidth">
+      <h2 class="hide">Accessibility Tools</h2>
+      <ul class="accesstools">
+        <li><a href="#maincontent" accesskey="s">Skip to Content</a></li>
+        <li><a href="accessibility.php"  accesskey="0">Accessibility</a></li>
+        <li id="textsize_li">Text Size: <span id="textsizetools"><a href="accessibility.php#textsize_faq">N/A</a></span></li>
+				
+      </ul>
+	  
+<h3 class="hide">Breadcrumb</h3>  
+	  
+	  
+      <ul class="globalbreadcrumb">
+        <li><a href="http://www.concordia.ca" accesskey="h" >Concordia Home</a><img src="images/common/globaltoolbar_arrow_white.gif" alt=">" class="globaltools_arrow" /></li>
+		
+		    		<li><a href="http://www.encs.concordia.ca/" >ENCS</a><img src="images/common/globaltoolbar_arrow_white.gif" alt=">" class="globaltools_arrow" /></li>
+		 		
+		<li><a href="http://www.cse.concordia.ca" >Computer Science &amp; Software Engineering Home</a></li>
+	  </ul>
+	  <div class="clear">&nbsp;</div>
+    </div>
+  </div> 
+</div>
+  
+  
+
+<div id="page">
+	<div id="banner">
+<div id="homebutton">
+<img src="custom/images/departmentlogo.gif" alt="Computer Science &amp; Software Engineering" id="concordialogo" />
+</div>
+    <h3 class="hide">Search</h3>
+<div id="search" class="search">
+      <form id="search_toplevel" action="scripts/searchredirect.php">
+        <ul class="li_thissite" id="search_option_list">
+ 		  <li><a href="http://www.google.ca/search?hl=en&amp;q=site%3Ahttp://www.cse.concordia.ca&amp;btnG=Search&amp;meta=" id="li_thissite">CSE</a></li>
+          <li><a href="http://www.google.ca/search?hl=en&amp;q=site%3Ahttp%3A%2F%2Fwww.concordia.ca&amp;btnG=Search&amp;meta=" id="li_entire">All of Concordia</a></li>
+          <li><a href="http://www.concordia.ca/directory/" id="li_staff">Staff &amp; Faculty Directory</a></li>
+          <!--<li><a href="http://news.concordia.ca/" id="li_news">News</a></li>
+          <li><a href="http://www3.concordia.ca/events/" id="li_events">Events</a> </li>-->
+        </ul>
+        <div id="search_toplevel_tools">
+		  <label for="search_toplevel_query" class="hide">Search Query</label>
+		           	 <input id="search_toplevel_query" name="query" value="Enter your Query here" type="text" accesskey="4" />
+		            <input type="submit" value="Search" id="search_toplevel_submit"/>
+          <input id="search_selected" name="li_thissite" value="1" type="hidden" />
+		  <input id="search_sitename" name="sitename" value="Computer Science &amp; Software Engineering" type="hidden" />
+		  <input id="search_googleraw" name="googleraw" value="cx=006658531582020549846%3Ajpswjb-rrj4&amp;cof=FORID%3A11&amp;sa=Search" type="hidden" />
+		  <input id="javascript_enabled" name="javascript_enabled" value="0" type="hidden" />
+        </div>
+      </form>
+    </div>
+<h2 class="hide">Main Menu</h2>
+<div id="mainmenu">
+<ul class="themainmenu"> <li id="li_mainmenu_prospectivestudents_1" >
+<a class="li_mainmenu_prospectivestudents_1_a" href="prospectivestudents/">
+Prospective Students </a>
+</li>
+<li id="li_mainmenu_currentstudents_1" >
+<a class="li_mainmenu_currentstudents_1_a" href="currentstudents/">
+Current Students </a>
+</li>
+<li id="li_mainmenu_people_1" >
+<a class="li_mainmenu_people_1_a" href="people/">
+People </a>
+</li>
+<li id="li_mainmenu_research_1" >
+<a class="li_mainmenu_research_1_a" href="research/">
+Research </a>
+</li>
+<li id="li_mainmenu_aboutthedepartment_1" >
+<a class="li_mainmenu_aboutthedepartment_1_a" href="aboutthedepartment/">
+About the Department </a>
+</li>
+<li id="li_mainmenu_newsandevents_1" >
+<a class="li_mainmenu_newsandevents_1_a" href="newsandevents/">
+News and Events </a>
+</li></ul>
+</div>
+  </div>		<div id="maincontent"  class="topgutter"  >
+		<div class="insidecontent ">
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+<!-- MAIN CONTENT AREA - START -->
+
+
+	<div class="halfwidth">
+		<br class="hide" />
+<!-- InstanceBeginEditable name="maincontent" --><!-- FCKEDITOR_maincontent --><!-- /FCKEDITOR_maincontent --> <!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="MainContent" -->
+
+<h2 class="hide">Undergraduate Programs</h2>
+<p>
+<a href="prospectivestudents/undergraduateprograms/"><img src="images/home/header-undergrad.jpg" alt="Undergraduate Programs" width="305" height="79" style="border:0px;" /></a></p>
+<p>The Department is committed to both teaching and research. We offer programs that lead to a <a href="prospectivestudents/undergraduateprograms/bachelorofcomputerscience/">Bachelor of Computer Science</a> and a <a href="prospectivestudents/undergraduateprograms/bachelorofsoftwareengineering/">Bachelor of Engineering in Software Engineering</a>.</p>
+<h3>&nbsp;</h3>
+<h3>Program flexibility and options </h3>
+<p>Our BCompSci program has several options to choose from so that you can match your studies to your interests, including an <a href="prospectivestudents/undergraduateprograms/honoursprogram/">Honours program</a>.</p>
+<h3>&nbsp;</h3>
+<h3>On the job experience</h3>
+<p>Both the BCompSci and BEng degrees are available as <a href="prospectivestudents/undergraduateprograms/co-opprogram/">co-op programs</a>, which alternate work and study terms.</p>
+<h3>Discover all our <a href="prospectivestudents/undergraduateprograms/">undergrad programs</a>.</h3>
+<p>&nbsp;</p>
+<!-- InstanceEndEditable -->
+<br class="hide" />
+	</div>
+	<div class="halfwidth leftpadding leftborder">
+		<br class="hide" />
+<!-- InstanceBeginEditable name="upperright" --><!-- FCKEDITOR_upperright --><!-- /FCKEDITOR_upperright --> <!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="UpperRight" -->
+
+<h2 class="hide">Graduate Programs</h2>
+<p>
+<a href="prospectivestudents/graduateprograms/"><img src="images/home/header-graduate.jpg" alt="Graduate Programs" width="305" height="79" style="border:0px;" /></a></p>
+
+<p>Four Master&rsquo;s Degree programs are available: in Computer Science, based on thesis work or based entirely on course work; and in Software Engineering, based on thesis work or based on course work. We have a graduate diploma program as well as a dynamic doctoral program in Computer Science</p>
+
+<h3>Explore our <a href="prospectivestudents/graduateprograms/index.php">graduate programs</a>.</h3>
+<h3><a href="http://www.cse.concordia.ca/currentstudents/">Check Important Deadlines </a></h3>
+<p>&nbsp;</p>
+
+<h2 class="hide">Software Engineering vs. Computer Science</h2>
+<p>
+<a href="prospectivestudents/softwareengineeringvscomputerscience/"><img src="images/home/header-sevscs.jpg" alt="Software Engineering vs. Computer Science" width="305" height="79" style="border:0px;" /></a></p>
+<p>What is the difference between software engineering and computer science? <a href="prospectivestudents/softwareengineeringvscomputerscience/">Find out more</a>.</p>
+<h3>&nbsp;</h3>
+<h3>Job Openings  </h3>
+<p><span style="font-weight: bold">Now accepting applications for    Tenure-Track Position.</span> <span style="font-weight: bold">Deadline: January 1, 2014. </span>Further details <a href="http://www.cse.concordia.ca/aboutthedepartment/jobopenings/">here </a>.  </p>
+<p>&nbsp;</p>
+<!-- InstanceEndEditable --><br class="hide" />
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="divider">&nbsp;</div>
+	<div class="halfwidth">
+		<br class="hide" />
+<!-- InstanceBeginEditable name="lowerleft" --><!-- FCKEDITOR_lowerleft --><!-- /FCKEDITOR_lowerleft --> <!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="LowerLeft" -->
+<h2>Why Study with Us? </h2>
+<div class="dropshadow medium"><img src="images/home/home_mtl.jpg" alt="City of Montreal" width="290" height="118" class="framed" /></div>
+<p>Based in the Faculty of Engineering and Computer Science, our department is one of the pioneers in Computer Science education and largest in the nation. <a href="aboutthedepartment/index.php">About our department</a>.</p>
+<p>Concordia is a large, urban, English-language Institution, located in Montreal, one of the oldest cities in North America and one of the world&rsquo;s largest French-speaking cities with a vibrant, cosmopolitan atmosphere. <a href="prospectivestudents/aboutconcordia/index.php">More about Concordia</a>.</p>
+<!-- InstanceEndEditable --><br class="hide" />
+	</div>
+	<div class="halfwidth leftborder">
+		<br class="hide" />
+<!-- InstanceBeginEditable name="lowerright" --><!-- FCKEDITOR_lowerright --><!-- /FCKEDITOR_lowerright --> <!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="LowerRight" -->
+<h2>Research</h2>
+<div class="DW_outline">
+<div class="dropshadow medium"> <img src="images/home/home_EV.jpg" alt="EV building" width="287" height="118" class="framed" /></div>
+</div>
+<p>Our 37 faculty members obtain over two million dollars in research grants each year. </p>
+<p>Over 500 graduate students, including about 100 PhD students, and several post-doctoral fellows and invited researchers contribute to research in our department. </p>
+<p>Find out more about our <a href="research/researchgroups/index.php">research groups</a>, <a href="research/grantsandfunding/index.php">sponsors</a> and <a href="research/facilities/index.php">facilities</a>.</p>
+<!-- InstanceEndEditable --><br class="hide" />
+	</div>
+	<div class="clear">&nbsp;</div>
+	</div>
+	<div class="sidebar">
+		<br class="hide" />
+<!-- InstanceBeginEditable name="sidebar" --><!-- FCKEDITOR_sidebar --><!-- /FCKEDITOR_sidebar --> <!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="Sidebar" -->
+<h1>News and Events </a></h1>
+<ul>
+  <li><span style="font-weight: bold">Now accepting applications for    Tenure-Track Position.</span> Further details <a href="http://www.cse.concordia.ca/aboutthedepartment/jobopenings/">here </a></li>
+  <li>Important info for Winter 2014<span style="font-weight: bold"> Teaching Assistant</span> applicants <a href="http://www.cse.concordia.ca/aboutthedepartment/jobopenings/">here</a>. 
+    <ul>
+      <ul>
+        <blockquote>
+          <h3>&nbsp;</h3>
+          <h3>Lecture Series</h3>
+        </blockquote>
+        <blockquote>
+          <p><span style="font-weight: bold">Tuesday, November 26, 2013: </span>Seminar by <span style="font-weight: bold">Chris Develder </span>(Ghent University, Belgium)</p>
+          <p><span style="font-weight: bold">Dimensioning (optical) Networks for Cloud Computing</span></p>
+          <p><a href="http://www.cse.concordia.ca/newsandevents/lectureseries/">Further details</a></p>
+          <p>A list of past and upcoming seminars and lectures is available <a href="http://www.cse.concordia.ca/newsandevents/lectureseries/">here</a>.<span style="font-weight: bold"><a href="documents/other%20documents/Rudzicz%20lecture%20poster.pdf"><br />
+            </a></span><a href="documents/other%20documents/Rudzicz%20lecture%20poster.pdf"><br />
+            </a></p>
+          <h3>Theses Defenses</h3>
+        </blockquote>
+        <blockquote>
+          <blockquote><p><span style="font-weight: bold">Friday, November 29, 2013:</span> Doctoral thesis defense given by <span style="font-weight: bold">Maryam Zakeryfar</span></p>
+            <p><a href="documents/research/Maryam Zakeryfar2013.pdf">Static Analysis of a Concurrent Programming Language by Abstract Interpretation</a></p>
+            <p>An archive of past theses defenses is available <a href="http://www.cse.concordia.ca/newsandevents/thesesdefenses/">here</a>. </p>
+            <blockquote>
+              <blockquote>
+                <p style="font-style: italic">See  a   <a href="http://www.cse.concordia.ca/newsandevents/">complete list</a> of past and upcoming news and events. </p>
+                <blockquote>
+                  <h1>Current Students</h1>
+                  <p>Please refer to the below course schedule link for recently <span style="font-weight: bold">updated times and room numbers</span>. Note that these schedule changes may not appear on your MyConcordia portal</p>
+                </blockquote>
+                <ul>
+                  <ul>
+                    <ul>
+                      <li> <a href="currentstudents/courseschedules/"><strong>Course Schedules</strong></a></li>
+                      <li style="font-weight: bold"><a href="http://www.cse.concordia.ca/prospectivestudents/undergraduateprograms/programoptions/#Software Systems Core">Undergraduate Course Sequences </a></li>
+                      <li><a href="http://www.cse.concordia.ca/currentstudents/" style="font-weight: bold">Important Deadlines </a></li>
+                      <li><a href="http://www.cse.concordia.ca/aboutthedepartment/jobopenings/" style="font-weight: bold">TA Application </a></li>
+                    </ul>
+                  </ul>
+                  <blockquote>
+                    <p>&nbsp;</p>
+                    <p>Looking for a lab? Want to join a student association? Check out our <a href="currentstudents/index.php">resources for current students</a>.</p>
+                  </blockquote>
+                </ul>
+                <h1>&nbsp;</h1>
+                <p>&nbsp;</p>
+                <p style="font-size: 11px; font-style: italic">&nbsp;</p>
+                <p>&nbsp;</p>
+              </blockquote>
+              <ul>
+                <ul>
+                  <blockquote>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                  </blockquote>
+                </ul>
+              </ul>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </ul>
+    </ul>
+  </li>
+  </ul>
+<!-- InstanceEndEditable --><br class="hide" />
+	</div>
+	<div class="clear">&nbsp;</div>
+	</div>
+
+	
+
+	<!-- MAIN CONTENT AREA - END -->
+
+
+		
+<h2 class="hide">Concordia University</h2>
+<div id="footer">
+  <div id="footer_links">
+    <h2 class="hide">Tools &amp; Quicklinks</h2>
+    <ul style="margin-bottom: 0;"><li><a href="http://www.concordia.ca/azindex/">A-Z Index</a></li>
+      <li><a href="http://www.concordia.ca/directory/">Directory</a></li>
+      <li><a href="http://www.concordia.ca/about/campusmaps/">Campus Map</a> </li>
+      <li><a href="http://www.concordia.ca/busschedule.php">Shuttle Bus Schedule</a></li>
+      <li><a href="http://myconcordia.ca">MyConcordia</a></li>
+      <li><a href="https://mail.encs.concordia.ca/horde/imp/">Webmail</a></li>
+      <li><a href="http://library.concordia.ca">Libraries</a></li>
+      <li><a href="http://www.concordia.ca/about/jobopportunities/">Jobs</a></li>
+      <li><a href="http://giving.concordia.ca">Giving to Concordia</a></li>
+    </ul>
+  </div>
+ 
+ <div class="clear">&nbsp;</div>
+  <div class="contactinfo"> <a href="http://www.concordia.ca"><img src="images/common/concordialogo_bottom.gif" alt="Concordia University Logo" /></a>
+    <div id="footer_address" class="vcard">
+      <p style="margin-bottom: 0"><strong> <span class="fn">Concordia University - <strong><span class="fn">Computer Science &amp; Software Engineering</span></strong></span></strong><br />
+        <span class="adr"><span class="street-address">1515 St. Catherine St. West, </span><span class="locality">Montreal</span>, <span class="region">Quebec</span>, <span class="country-name">Canada</span> <span class="postal-code">H3G 1M8</span></span><br />
+        Telephone <span class="tel">(1) 514-848-2424</span>  ext. 3000<br />
+        <a href="aboutthedepartment/contactus/" class="url">Contact Us</a> | <a href="http://www.concordia.ca/about/contactus/">University Mailing Address</a> | <a href="aboutthissite.php">About This Site</a><br />
+      Copyright &copy; 2013 <span class="org">Concordia University</span> | <a href="legalnotice.php">Legal Notice</a></p>
+    </div>
+  </div>
+  <div id="backtotop">
+    <p style="margin-bottom: 0"><a href="#top">Back to Top</a></p>
+  </div>
+  <div class="url">
+    <h2>Page Info</h2>
+    <p><strong>Page Title</strong>: Homepage - Concordia University - Montreal, Quebec, Canada</p>
+    <p><strong>Page URL</strong>:http://www.cse.concordia.ca/index.php ...</p>
+    <p style="margin-bottom: 0;"><strong>Date Printed</strong>: Tue November 26, 2013</p>
+  </div>
+  <div class="clear">&nbsp;</div>
+</div>
+<div id="search_listing_disabled"  style="display:none; z-index:-100;">
+	<div id="local_site_list">
+			</div>
+		<div id="search_staff_directory" style="position:absolute; z-index:200; left:0; top:0;"> </div>	
+</div>
+<div id="search_listing" style="display:none; z-index:-100;"> </div>
+
+<div id="sharethis_holder">
+	<script type="text/javascript" src="http://web2.concordia.ca/globalmk/scripts/sharethis.js"> </script>
+</div>
+
+
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	
+	// Central Tracking
+	var pageTracker_central = _gat._getTracker("UA-2729211-1");
+	pageTracker_central._setDomainName(".concordia.ca");
+	pageTracker_central._setAllowHash(false);
+	pageTracker_central._initData();
+	pageTracker_central._trackPageview();
+	
+</script>
+
+
+</div>
+</body>
+<!-- InstanceEnd --></html>
