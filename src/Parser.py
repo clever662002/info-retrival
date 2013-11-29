@@ -1,44 +1,42 @@
 #import sys
 #import glob
 #import errno
-from bs4 import BeautifulSoup, Comment, Doctype
+from bs4 import BeautifulSoup, Comment
 import os
 
 
 class Parser:
-	def parse(self, path):
-        #create a list which will contain the documents
-#        collection = list()
-        #Process the input file to extract documents
-		for filename in os.listdir(path):
-			input_file = open(path + filename)
-			soup = BeautifulSoup(input_file)
-			blacklist = ['script','meta', 'link', 'style', 'a','meta','button','img','iframe','br']
-			# Delete DOCTYPE declaration
-   			#items = [item for item in soup.contents if isinstance(item, Doctype)]
-    			#del items
-    		for tag in soup.findAll(True):
-			if tag.name.lower() in blacklist:
-				tag.extract()
-			for attribute in ["accesskey", "border", "bordercolor", "cellpadding", "cellspacing",
-				"width", "height", "colspan", "valign", "type", "align", "action", "style"]:
-				del tag[attribute]
-			if soup:
-				continue
-			# scripts can be executed from comments in some cases
-			comments = soup.findAll(text=lambda text:isinstance(text, Comment))
-			for comment in comments:
-				comment.extract()
-            	print soup.prettify()
-		print '********************************************'
-#		return collection
 
-# main function
-if __name__ == '__main__':
-    collection = list()
-    parser = Parser()
-    path = "/home/tina/projects/test/"
-    parser.parse(path)
+    def parse(self, path):
+        #create a dictionary which will contain the (path:documents)
+        collection = dict()
+        #Process the input file to extract documents
+        for filename in os.listdir(path):
+            input_file = open(path + filename)
+            soup = BeautifulSoup(input_file)
+            blacklist = ['script', '[document]', 'meta', 'link', 'style',
+                'a', 'button', 'img', 'iframe', 'br']
+            for tag in soup.findAll(True):
+                if tag.name.lower() in blacklist:
+                    tag.extract()
+                for attribute in ["accesskey", "border", "bordercolor",
+                "cellpadding", "cellspacing", "width", "height", "colspan",
+                "valign", "type", "align", "action", "style"]:
+                    del tag[attribute]
+            # scripts can be executed from comments in some cases
+            comments = soup.findAll(text=lambda text: isinstance(text, Comment))
+            for comment in comments:
+                comment.extract()
+            #After finishing Parsing, store the dcoment's path and its material'
+            collection[path + filename] = soup
+            # Delete DOCTYPE declaration
+            #items = [item for item in soup.contents
+            # if isinstance(item, Doctype)]
+            #del items
+            #if soup:
+                #	continue
+
+        return collection
 '''
 class Parser:
     def parse(self, path):
