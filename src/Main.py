@@ -14,21 +14,30 @@ Created on 2013-10-16
 from Parser import Parser
 from Indexing import Indexing
 from Searcher import Searcher
+#from whoosh.qparser import QueryParser
+import whoosh.index as index
+
 
 # main function
 if __name__ == '__main__':
-#    collection = list()
-#    parser = Parser()
-#    indexer = Indexing()
+    #collection = list()
+    #parser = Parser()
+    #indexer = Indexing()
     searcher = Searcher()
-#    path = "/home/katherine/COMP479/info-retrieval/trunk/src/test/"
-
-#    # Parse the documents
-#    collection = parser.parse(path)
-#    # Index the documents
-#    indexer.process(collection)
-#    print "Finish Indexing"
-
+    #path = "/home/tina/projects/test/"
+    ##path = "/home/katherine/COMP479/info-retrieval/trunk/src/test/"
+    ##Parse the documents
+    #collection = parser.parse(path)
+    ##Index the documents
+    #indexer.process(collection)
+    #print "Finish Indexing"
+    ix = index.open_dir("indexdir")
+    ix_reader = ix.reader()
+    #results = ix_reader.all_terms()
+    results = ix_reader.frequency("title", "concordia")
+    print results
+    #for rs in results:
+        #print rs
     # Query the index
     query = "canada"
     searcher.search(query)
