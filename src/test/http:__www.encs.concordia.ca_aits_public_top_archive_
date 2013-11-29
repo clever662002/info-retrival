@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>MOTD archives</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Description" content="AITS, Montreal, Canada">
+<meta name="keywords" content="AITS, Academic Information Technology Services, Concordia university, Canada, Montreal, ">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="/Assets/stylesheets/encs.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+body {
+	background-color: #FFFFCC;
+	background-repeat: repeat;
+	background-position: left bottom;
+}
+-->
+</style>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('/Assets/images/Adminstration2.gif','/Assets/images/Alumni2.gif','/Assets/images/Departments2.gif','/Assets/images/research2.gif','/Assets/images/news2.gif','/Assets/images/jobs2.gif','/Assets/images/home2.gif')" flink="#000099"> 
+<center> 
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+    <tr> 
+      <td height="21" align="center" bgcolor="#bdb76b"> <table cellpadding="0" cellspacing="0" border="0"> 
+          <tr bordercolor="#999999"> 
+            <td width="114"><a href="/index.htm" onMouseOver="MM_swapImage('Image1','','/Assets/images/home2.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="/Assets/images/home1.gif" alt="ENCS Home" name="Image1" width="114" height="21" border="0" id="Image1"></a></td> 
+            <td width="114"><a href="/Administration/administration.htm" onMouseOver="MM_swapImage('Image9','','/Assets/images/Adminstration2.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="/Assets/images/Adminstration1.gif" alt="Administration" name="Image9" width="114" height="21" border="0" id="Image9"></a></td> 
+            <td width="114"><a href="/Alumni" onMouseOver="MM_swapImage('Image10','','/Assets/images/Alumni2.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="/Assets/images/Alumni1.gif" alt="Alumni" name="Image10" width="114" height="21" border="0" id="Image10"></a></td> 
+            <td width="114"><a href="/Faculty/Departments.htm" onMouseOver="MM_swapImage('Image12','','/Assets/images/Departments2.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="/Assets/images/Departments1.gif" alt="Departments" name="Image12" width="114" height="21" border="0" id="Image12"></a></td> 
+            <td width="114"><a href="/Research/Research_Unit.htm" onMouseOver="MM_swapImage('Image11','','/Assets/images/research2.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="/Assets/images/research1.gif" alt="Research" name="Image11" width="114" height="21" border="0" id="Image11"></a></td> 
+            <td width="114"><a href="/News" onMouseOver="MM_swapImage('Image13','','/Assets/images/news2.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="/Assets/images/news1.gif" alt="News &amp; Events" name="Image13" width="114" height="21" border="0" id="Image13"></a></td> 
+            <td width="114"><a href="/About_ENCS/Jobs.htm" onMouseOver="MM_swapImage('Image2','','/Assets/images/jobs2.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="/Assets/images/jobs1.gif" alt="Jobs" name="Image2" border="0" id="Image2"></a></td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+  </table> 
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+    <TR> 
+      <TD vAlign=top width="100%" bgColor=#bdb76b> <DIV align=center> 
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0> 
+            <TR> 
+              <TD vAlign=top bgColor=#FFFFCC> <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0> 
+                  <TR> 
+                    <TD bgColor=#666666 colSpan=4 height=1><img src="/Assets/images/dot.gif" height="1"></TD> 
+                  </TR> 
+                  <TR> 
+                    <TD vAlign=top width=240 bgColor=#FFFFCC> <TABLE cellSpacing=0 cellPadding=0 width=120 border=0> 
+                        <TR> 
+                          <TD vAlign=top width=200 bgColor=#FFFFCC><img src="/Assets/images/ENCS-logo07.gif" border="0" usemap="#Map" >  
+                        </TR> 
+                        <tr> 
+                          <td height="50"> <div align="center"> 
+                              <form method="post" action="http://www.encs.concordia.ca/cgi-bin/htsearch"> 
+                                <font size="1"><strong><font color="#666666">Search:</font></strong> 
+                                <input size="18" name="words" value="" type="text"> 
+                                <input name="submit" value="Go" type="submit"> 
+                                </font> 
+                              </form> 
+                            </div></td> 
+                        </tr> 
+                        <TR> 
+                          <TD vAlign=top width=200 bgColor=#FFFFCC> <UL type=circle > 
+                              <BR> 
+                              <LI><A href="/encsit">AITS Home</A></LI> 
+                              <LI><a href="/encsit/public/top/team.html">AITS Staff Directory</a></LI> 
+                              <LI><a href="/encsit/public/top/archive">Announcement Archive</a></LI> 
+                              <LI><a href="/aits/sec/purchasing/">Purchase Request</a></LI> 
+                              <LI><a href="/encsit/public/top/sitemap.html">Site Map</a></LI> 
+                            </UL> 
+                            <TABLE cellSpacing=0 cellPadding=0 width=240 align=center border=0> 
+                              <TR> 
+                                <TD width=100% height=1 bgcolor="#999999"></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD width=100% height=1 bgcolor="#999999"></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD noWrap width=100% bgColor=#AEB96F height=23> <DIV align=center><FONT color="#000000" 
+                              size=2 face=Verdana,Arial><B>Quick links</B></FONT></DIV></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD height="1" bgcolor="#999999"></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD  > <ul> 
+                                    <br> 
+                                    <LI> <a href="/helpdesk/"> IT Helpdesk</a> </LI> 
+                                    <li> <a href="/aits/software/"> Software Resource</a> </li> 
+                                    <Li> <a href="http://www.encs.concordia.ca/encsit/public/top/courseSupport.html">Course Support </a> </Li> 
+                                    <li> <a href="https://fis.encs.concordia.ca/helpdesk-cgi/quota.cgi">Quota Check</a> </li> 
+                                    <li> <a href="https://mail.encs.concordia.ca/horde/imp/" target="_blank"> Webmail</a> </li> 
+                                    <LI> <a href="https://atlas.encs.concordia.ca/calendar/login.php" target="_blank"> Web Calendar</a> </LI> 
+        <li><a href="http://www.encs.concordia.ca/aits/public/top/MSDNAA/">MSDNAA</a></li>
+
+                                    <br> 
+                                  </ul></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD width=100% height=1 bgcolor="#999999"></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD noWrap width=100% bgColor=#AEB96F height=23> <DIV align=center><FONT color="#000000" 
+                              size=1 face=Verdana,Arial><B>Mailing address</B></FONT></DIV></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD width="100%" height="1" bgcolor="#999999"></TD> 
+                              </TR> 
+                              <TR> 
+                                <TD width="100%"><table width="220" border="0" align="center"> 
+                                    <tr> 
+                                      <td><blockquote> 
+                                          <div align="center"><font size="1"><br> 
+                                            1455 de Maisonneuve Blvd. West<br> 
+                                            Montreal, Quebec, Canada<br> 
+                                            H3G 1M8<br> 
+                                            www.encs.concordia.ca</font></div> 
+                                        </blockquote></td> 
+                                    </tr> 
+                                  </table></TD> 
+                              </TR> 
+                            </TABLE></TD> 
+                        </TR> 
+                      </TABLE></TD> 
+                    <TD vAlign=top width=1 bgColor=#999999 height="100%"><img src="/Assets/images/dot.gif" width="1"></TD> 
+                    <TD vAlign=top height="100%"> 
+                      <TABLE width="100%" height="100%" border=0 cellPadding=0 cellSpacing=0 bgcolor="#FFFFCC"> 
+                        <TR> 
+                          <TD vAlign=top colspan=2><div align="center"><img src="/encsit/public/top/Assets/images/AITS-header.jpg"></div> </TD>
+                        </TR> 
+                        <TR> 
+                          <TD height="100%"></TD> 
+                          <TD class=body  align="left" vAlign=top> <FONT face=verdana,arial color=maroon size=2>&nbsp;</FONT> 
+                            <TABLE cellSpacing=10 cellPadding=0 width="100%" border=0> 
+                              <TR> 
+                                <TD class=content vAlign=top><font size="2"> 
+                                  <p align="center"> </p> 
+                                  </font> 
+                                  <div align="center"> 
+                                    <h1><FONT face=Verdana,Arial color=#798440><B>MOTD archives</B></FONT></h1> 
+                                  </div> 
+                                  <TABLE cellSpacing=2 cellPadding=3 width="100%" border=0> 
+                                    <TR> 
+                                      <TD class=body vAlign=top width=114></TD> 
+                                      <TD class=body></TD> 
+                                    </TR> 
+                                    <TR> 
+                                      <TD colspan="2" vAlign=top class=body><div align="justify">
+
+
+<li>
+<a href="2004">2004</a><br>
+</li>
+
+<li>
+<a href="2005">2005</a><br>
+</li>
+
+<li>
+<a href="2006">2006</a><br>
+</li>
+
+<li>
+<a href="2007">2007</a><br>
+</li>
+
+<li>
+<a href="2008">2008</a><br>
+</li>
+
+<li>
+<a href="2009">2009</a><br>
+</li>
+
+<li>
+<a href="2010">2010</a><br>
+</li>
+
+<li>
+<a href="2013">2013</a><br>
+</li>
+
+
+</div></TD> 
+                                    </TR> 
+                                  </TABLE> 
+                                  <BR> </TD> 
+                                <TD class=content vAlign=top>&nbsp;</TD> 
+                              </TR> 
+                            </TABLE></TD> 
+                        </TR> 
+                      </TABLE></TD> 
+                  </TR> 
+                </TABLE></TD> 
+            </TR> 
+          </TABLE> 
+          <font color="#FFFFFF" size="1"><strong> If you have any comments about the website please</strong> </font><font size="1"><a href="mailto:itdocs@encs.concordia.ca"><strong>email</strong></a></font><font color="#FFFFFF" size="1"> <strong>us</strong></font></DIV></TD> 
+    </TR> 
+  </TABLE> 
+  <div align="right"> <br> 
+    Copyright &copy; 2005 Faculty of Engineering &amp; Computer Science</div> 
+  <!--- submenu ---> 
+</center> 
+<map name="Map"> 
+   <area shape="rect" coords="84,13,236,39" href="http://www.concordia.ca/" alt="Concordia University Website">
+</map> 
+</body>
+</html>
