@@ -4,7 +4,6 @@ from whoosh import index
 from whoosh.fields import *
 from bs4 import BeautifulSoup
 
-
 class Indexing:
 
     def __init__(self):
@@ -23,9 +22,7 @@ class Indexing:
                         h5=TEXT(field_boost=2.0),
                         h6=TEXT(field_boost=2.0),
                         div=TEXT,
-                        section=TEXT
-                        )
-        self.ix
+                        section=TEXT)
 
     def process(self, collection):
         if not os.path.exists("indexdir"):
@@ -33,89 +30,50 @@ class Indexing:
         self.ix = index.create_in("indexdir", self.schema)
         self.ix = index.open_dir("indexdir")
         writer = self.ix.writer()
+
         for doc in collection:
-
+	    # Parse document with Beautiful Soup to remove unwanted tags.
             soup = BeautifulSoup(str(doc))
-            if soup.title:
-                title = soup.title.findAll(text=True)
-            else:
-                title = None
 
+	    if soup.title:
+		title = soup.title.findAll(text=True)
             if soup.th:
-                th = soup.th.findAll(text=True)
-            else:
-                th = None
-
+		th = soup.th.findAll(text=True)
             if soup.h1:
-                h1 = soup.h1.findAll(text=True)
-            else:
-                h1 = None
-
+		h1 = soup.h1.findAll(text=True)
             if soup.h2:
-                h2 = soup.h2.findAll(text=True)
-            else:
-                h2 = None
+		h2 = soup.h2.findAll(text=True)
+	    if soup.h3:       
+		h3 = soup.h3.findAll(text=True)
+		s = ""
+		for h in h3:
+			s += " " + str(h.contents[0])
+		print s
+	    if soup.h4:
+		h4 = soup.h4.findAll(text=True)
+	    if soup.h5:
+		h5 = soup.h5.findAll(text=True)
+	    if soup.h6:
+		h6 = soup.h6.findAll(text=True)
+	    if soup.p:
+		p = soup.p.findAll(text=True)
+	    if soup.blockquote:
+		blockquote = soup.blockquote.findAll(text=True)
+	    if soup.td:
+		td = soup.td.findAll(text=True)
+#	    li = soup.li.findAll(text=True)
+#	    label = soup.label.findAll(text=True)
+#	    div = soup.div.findAll(text=True)
+#	    section = soup.section.findAll(text=True)
 
-            if soup.h3:
-                h3 = soup.h3.findAll(text=True)
-            else:
-                h3 = None
 
-            if soup.h4:
-                h4 = soup.h4.findAll(text=True)
-            else:
-                h4 = None
+#            writer.add_document(title=title, th=th, h1=h1, h2=h2, h3=s, h4=h4,
+#                                h5=h5, h6=h6, p=p, blockquote=blockquote,
+#                                td=td, li=li, label=label, div=div,
+#                                section=section)
 
-            if soup.h5:
-                h5 = soup.h5.findAll(text=True)
-            else:
-                h5 = None
+#            print "finishing add_document"
 
-            if soup.h6:
-                h6 = soup.h6.findAll(text=True)
-            else:
-                h6 = None
-
-            if soup.p:
-                p = soup.p.findAll(text=True)
-            else:
-                p = None
-
-            if soup.blockquote:
-                blockquote = soup.blockquote.findAll(text=True)
-            else:
-                blockquote = None
-
-            if soup.td:
-                td = soup.td.findAll(text=True)
-            else:
-                td = None
-
-            if soup.li:
-                li = soup.li.findAll(text=True)
-            else:
-                li = None
-
-            if soup.label:
-                label = soup.label.findAll(text=True)
-            else:
-                label = None
-
-            if soup.div:
-                div = soup.div.findAll(text=True)
-            else:
-                div = None
-
-            if soup.section:
-                section = soup.section.findAll(text=True)
-            else:
-                section = None
-
-            writer.add_document(title=title, th=th, h1=h1, h2=h2, h3=h3, h4=h4,
-                                h5=h5, h6=h6, p=p, blockquote=blockquote,
-                                td=td, li=li, label=label, div=div,
-                                section=section)
-            print "finishing add_document"
-        writer.commit()
+#        writer.commit()
 
 
