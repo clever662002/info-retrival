@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 import os
 from whoosh import index
 from whoosh.fields import *
 from bs4 import BeautifulSoup
-
 
 class Indexing:
 
@@ -35,9 +33,10 @@ class Indexing:
         for key, value in collection.iteritems():
             #get document's path which is a key in dict
             path = u"".join(key)
-            print path
+            # print path
             # Parse document with Beautiful Soup to remove unwanted tags.
             soup = BeautifulSoup(str(value))
+
             if soup.title:
                 title = u" ".join(soup.title.findAll(text=True))
             else:
@@ -56,11 +55,6 @@ class Indexing:
                 h2 = None
             if soup.h3:
                 h3 = u" ".join(soup.h3.findAll(text=True))
-                #h3s = ""
-                #for h in h3:
-                    ##h3s += " " + str(h.contents[0])
-                    #h3s += " " + unicode(h)
-                    #print h3s
             else:
                 h3 = None
             if soup.h4:
@@ -76,7 +70,9 @@ class Indexing:
             else:
                 h6 = None
             if soup.p:
-                p = u" ".join(soup.p.findAll(text=True))
+		p = ""
+		for node in soup.findAll('p'):
+    			p += u" ".join(node.findAll(text=True))
             else:
                 p = None
             if soup.blockquote:
@@ -113,5 +109,4 @@ class Indexing:
             print "finishing add_document"
 
         writer.commit()
-
 
