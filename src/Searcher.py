@@ -1,25 +1,42 @@
-import whoosh.index as index
+from whoosh.reading import IndexReader
+from whoosh.searching import Searcher, Hit
 from whoosh.qparser import MultifieldParser
-#from whoosh.qparser import QueryParser
+import whoosh.index as index
+import whoosh.scoring as score
 import codecs
 
-
 class Searcher:
+
+    def __init__(self):
+	self.ix = index.open_dir("indexdir")
 
     def search(self, query):
         fieldnames = ["title", "th", "h1", "h2", "h3", "h4", "h5",
                         "h6", "p", "blockquote", "td", "li", "label", "div",
                         "section"]
-        ix = index.open_dir("indexdir")
-        qp = MultifieldParser(fieldnames, schema=ix.schema)
+        qp = MultifieldParser(fieldnames, schema=self.ix.schema)
         q = qp.parse(unicode(query))
-        with ix.searcher() as s:
-            results = s.search(q)
-            print "Number of results: ", len(results)
-            for hit in results:
-                #print(hit["title"])
-                # Assume the "path" stored field
-                #contains a path to the original file
-                with codecs.open(hit["path"], "r", "utf-8") as fileobj:
-                    filecontents = fileobj.read()
-                print hit.highlights("title", text=filecontents)
+	
+	# DEBUG: Print out contents of index.
+#	reader = self.ix.reader()
+#	terms = reader.all_terms()
+#	for t in terms:
+#		print t
+
+	# Searcher object instantiated here.
+        with self.ix.searcher() as s:
+            results = s.search(q, terms=True)
+	    for r in results:
+		print r.fields()
+	    print "Number of results:", len(results)
+	    # Get a random hit object from results and convert it to dict with .fields() call
+#	    r = random.choice(results).fields()
+#	    print r
+#	    for hit in results:
+#		print (hit.highlights("content")), "\n**********************************\n"
+
+
+
+
+
+

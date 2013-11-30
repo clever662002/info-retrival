@@ -8,19 +8,19 @@ class Indexing:
     def __init__(self):
         self.schema = Schema(path=ID(stored=True),
                         title=TEXT(stored=True, field_boost=5.0),
-                        th=TEXT(field_boost=4.0),
-                        h1=TEXT(field_boost=4.0),
-                        h2=TEXT(field_boost=3.0),
-                        p=TEXT(field_boost=3.0),
-                        blockquote=TEXT(field_boost=3.0),
-                        td=TEXT(field_boost=3.0),
-                        li=TEXT(field_boost=3.0),
-                        h3=TEXT(field_boost=2.0),
-                        label=TEXT(field_boost=2.0),
-                        span=TEXT(field_boost=2.0),
-                        h4=TEXT(field_boost=2.0),
-                        h5=TEXT(field_boost=2.0),
-                        h6=TEXT(field_boost=2.0),
+                        th=TEXT(stored=True, field_boost=4.0),
+                        h1=TEXT(stored=True, field_boost=4.0),
+                        h2=TEXT(stored=True, field_boost=3.0),
+                        p=TEXT(stored=True, field_boost=3.0),
+                        blockquote=TEXT(stored=True, field_boost=3.0),
+                        td=TEXT(stored=True, field_boost=3.0),
+                        li=TEXT(stored=True, field_boost=3.0),
+                        h3=TEXT(stored=True, field_boost=2.0),
+                        label=TEXT(stored=True, field_boost=2.0),
+                        span=TEXT(stored=True, field_boost=2.0),
+                        h4=TEXT(stored=True, field_boost=2.0),
+                        h5=TEXT(stored=True, field_boost=2.0),
+                        h6=TEXT(stored=True, field_boost=2.0),
                         div=TEXT,
                         section=TEXT)
 
@@ -41,7 +41,7 @@ class Indexing:
             path = u"".join(key)
             # print path
             # Parse document with Beautiful Soup to remove unwanted tags.
-            soup = BeautifulSoup(str(value))
+            soup = BeautifulSoup(str(value)) # value = HTML content of document
 
             for e in w_list:
                 if soup.findAll(e):
@@ -51,6 +51,8 @@ class Indexing:
                     tc[e] = res
                 else:
                     tc[e] = None
+	    
+	    content = soup
 
             writer.add_document(path=path, title=tc["title"], th=tc["th"],
                                 h1=tc["h1"], h2=tc["h2"], h3=tc["h3"],
