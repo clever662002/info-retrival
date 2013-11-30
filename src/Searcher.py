@@ -25,16 +25,16 @@ class Searcher:
 
 	# Searcher object instantiated here.
         with self.ix.searcher() as s:
-            results = s.search(q, terms=True)
-	    for r in results:
-		print r.fields()
-	    print "Number of results:", len(results)
-	    # Get a random hit object from results and convert it to dict with .fields() call
-#	    r = random.choice(results).fields()
-#	    print r
-#	    for hit in results:
-#		print (hit.highlights("content")), "\n**********************************\n"
-
+	    v = s.vector(0, "content")
+	    for i in v.items_as("frequency"):
+		print i
+#            results = s.search(q, terms=True)
+#	    # Display results for each Hit.
+#	    for r in results:
+#		for e in r.fields().keys():
+#			print e, ":", r[e]
+#		#print r.fields()['path'][54:]
+#		print "***********************************"
 
 
 
