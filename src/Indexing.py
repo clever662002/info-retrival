@@ -57,10 +57,8 @@ class Indexing:
                                 h1=tc["h1"], h2=tc["h2"], h3=tc["h3"],
                                 h4=tc["h4"], h5=tc["h5"], h6=tc["h6"],
                                 p=tc["p"], blockquote=tc["blockquote"],
-                                td=tc["td"], li=tc["li"], label=tc["label"],
+                                td=tc["td"], li=tc["li"], label=tc["label"], span=tc["span"],
                                 div=tc["div"], section=tc["section"], content=unicode(soup))
-
-            print "finishing add_document"
 
         writer.commit()
 
