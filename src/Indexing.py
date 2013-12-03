@@ -7,22 +7,22 @@ class Indexing:
 
     def __init__(self):
         self.schema = Schema(path=ID(stored=True),
-                        title=TEXT(vector=True, stored=True, field_boost=5.0),
-                        th=TEXT(vector=True, stored=True, field_boost=4.0),
-                        h1=TEXT(vector=True, stored=True, field_boost=4.0),
-                        h2=TEXT(vector=True, stored=True, field_boost=3.0),
-                        p=TEXT(vector=True, stored=True, field_boost=3.0),
-                        blockquote=TEXT(vector=True, stored=True, field_boost=3.0),
-                        td=TEXT(vector=True, stored=True, field_boost=3.0),
-                        li=TEXT(vector=True, stored=True, field_boost=3.0),
-                        h3=TEXT(vector=True, stored=True, field_boost=2.0),
-                        label=TEXT(vector=True, stored=True, field_boost=2.0),
-                        span=TEXT(vector=True, stored=True, field_boost=2.0),
-                        h4=TEXT(vector=True, stored=True, field_boost=2.0),
-                        h5=TEXT(vector=True, stored=True, field_boost=2.0),
-                        h6=TEXT(vector=True, stored=True, field_boost=2.0),
-                        div=TEXT(vector=True, stored=True),
-                        section=TEXT(vector=True, stored=True),
+                        title=TEXT(stored=True, field_boost=5.0),
+                        th=TEXT(stored=True, field_boost=4.0),
+                        h1=TEXT(stored=True, field_boost=4.0),
+                        h2=TEXT(stored=True, field_boost=3.0),
+                        p=TEXT(stored=True, field_boost=3.0),
+                        blockquote=TEXT( stored=True, field_boost=3.0),
+                        td=TEXT( stored=True, field_boost=3.0),
+                        li=TEXT( stored=True, field_boost=3.0),
+                        h3=TEXT( stored=True, field_boost=2.0),
+                        label=TEXT(stored=True, field_boost=2.0),
+                        span=TEXT(stored=True, field_boost=2.0),
+                        h4=TEXT(stored=True, field_boost=2.0),
+                        h5=TEXT(stored=True, field_boost=2.0),
+                        h6=TEXT(stored=True, field_boost=2.0),
+                        div=TEXT(stored=True),
+                        section=TEXT(stored=True),
 			content=TEXT(vector=True))
 
     def process(self, collection):
@@ -57,8 +57,10 @@ class Indexing:
                                 h1=tc["h1"], h2=tc["h2"], h3=tc["h3"],
                                 h4=tc["h4"], h5=tc["h5"], h6=tc["h6"],
                                 p=tc["p"], blockquote=tc["blockquote"],
-                                td=tc["td"], li=tc["li"], label=tc["label"], span=tc["span"],
+                                td=tc["td"], li=tc["li"], label=tc["label"],
                                 div=tc["div"], section=tc["section"], content=unicode(soup))
+
+	    print "Added document"
 
         writer.commit()
 
