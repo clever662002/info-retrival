@@ -14,7 +14,7 @@ class Searcher:
         fieldnames = ["title", "th", "h1", "h2", "h3", "h4", "h5",
                         "h6", "p", "blockquote", "td", "li", "label", "div",
                         "section"]
-        qp = MultifieldParser(fieldnames, schema=self.ix.schema)
+        qp = MultifieldParser(fieldnames, schema=self.ix.schema, group=qparser.OrGroup)
         q = qp.parse(unicode(query))
 	
 	# DEBUG: Print out contents of index.
